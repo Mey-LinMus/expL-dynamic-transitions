@@ -2,11 +2,13 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import Typewriter from "typewriter-effect/dist/core";
 import Spiderman from "../assets/spiderman.png";
+import Web from "../assets/web.png";
 import "../styles/section.css";
 
 const SectionOne = () => {
   const textRef = useRef(null);
   const imageRef = useRef(null);
+  const webRef = useRef(null);
 
   useEffect(() => {
     const startTextAnimation = async () => {
@@ -34,8 +36,21 @@ const SectionOne = () => {
       });
     };
 
+    const startWebAnimation = async () => {
+      const webElement = webRef.current;
+
+      gsap.set(webElement, { opacity: 0, scale: 0 });
+      await gsap.to(webElement, {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: "power3.out",
+      });
+    };
+
     startTextAnimation();
     startImageAnimation();
+    startWebAnimation();
   }, []);
 
   return (
@@ -50,6 +65,9 @@ const SectionOne = () => {
           alt="Spiderman"
           className="fade-in"
         />
+      </div>
+      <div className="web-container">
+        <img ref={webRef} src={Web} alt="Spider web" className="web" />
       </div>
     </div>
   );
