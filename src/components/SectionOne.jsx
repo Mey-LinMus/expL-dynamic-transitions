@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+// import mojs from "@mojs/core";
 import Typewriter from "typewriter-effect/dist/core";
 import Spiderman from "../assets/spiderman.png";
-import "../styles/sectionone.css";
+import "../styles/section.css";
 
 const SectionOne = () => {
   const imageRef = useRef(null);
@@ -11,10 +12,11 @@ const SectionOne = () => {
   useEffect(() => {
     const imageElement = imageRef.current;
 
-    gsap.set(imageElement, { opacity: 0, rotate: 180 });
+    gsap.set(imageElement, { opacity: 0, rotate: 180, scale: 0 });
 
     gsap.to(imageElement, {
       opacity: 1,
+      scale: 1,
       duration: 1,
       rotate: 0,
       ease: "power1.inOut",

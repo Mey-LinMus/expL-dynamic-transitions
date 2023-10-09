@@ -20,3 +20,10 @@
 .header img {
   width: 45%;
 }
+
+.web {
+  position: absolute;
+  left: 60%;
+  bottom: 5px;
+  width: 30%;
+}
