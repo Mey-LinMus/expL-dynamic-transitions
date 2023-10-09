@@ -1,10 +1,10 @@
 # Lijst alle libraries
 
-** **
-Use the package manager [npm](https://) to install webpack.
+**GSAP**
+Use the package manager [npm](https://www.npmjs.com/package/gsap) to install webpack.
 
 ```bash
-npm
+npm i gsap
 ```
 
 
