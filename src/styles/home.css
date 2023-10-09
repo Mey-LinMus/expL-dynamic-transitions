@@ -2,8 +2,6 @@ body {
   margin: 0;
   background-color: black;
   color: white;
+  overflow-x: hidden;
 }
 
-.header img {
-  width: 50%;
-}
