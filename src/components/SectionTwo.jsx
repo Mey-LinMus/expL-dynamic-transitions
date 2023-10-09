@@ -7,17 +7,23 @@ const SectionTwo = () => {
   const imageRef = useRef(null);
 
   useEffect(() => {
-    const imageElement = imageRef.current;
+    const startImageAnimation = async () => {
+      const imageElement = imageRef.current;
 
-    gsap.fromTo(
-      imageElement,
-      { opacity: 0, scale: 0 },
-      { opacity: 1, scale: 1, duration: 1, ease: "power3.out" }
-    );
+      gsap.set(imageElement, { opacity: 0, scale: 0 }); // Set initial position properties
+      await gsap.to(imageElement, {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: "power3.out",
+      });
+    };
+
+    startImageAnimation();
   }, []);
 
   return (
-    <div>
+    <div className="web-container">
       <img ref={imageRef} src={Web} alt="Spider web" className="web" />
     </div>
   );

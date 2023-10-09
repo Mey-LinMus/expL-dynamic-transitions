@@ -1,40 +1,56 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-// import mojs from "@mojs/core";
 import Typewriter from "typewriter-effect/dist/core";
 import Spiderman from "../assets/spiderman.png";
 import "../styles/section.css";
 
 const SectionOne = () => {
+  const textRef = useRef(null);
   const imageRef = useRef(null);
-  const typewriterRef = useRef(null); // Define typewriterRef
 
   useEffect(() => {
-    const imageElement = imageRef.current;
+    const startTextAnimation = async () => {
+      const textElement = textRef.current;
 
-    gsap.set(imageElement, { opacity: 0, rotate: 180, scale: 0 });
+      const typewriter = new Typewriter(textElement, {
+        loop: false,
+        delay: 80,
+        cursor: "",
+      });
 
-    gsap.to(imageElement, {
-      opacity: 1,
-      scale: 1,
-      duration: 1,
-      rotate: 0,
-      ease: "power1.inOut",
-    });
+      await typewriter.typeString("Spider-man").start();
+    };
 
-    const typewriter = new Typewriter(typewriterRef.current, {
-      loop: false,
-      delay: 80,
-      cursor: "",
-    });
+    const startImageAnimation = async () => {
+      const imageElement = imageRef.current;
 
-    typewriter.typeString("Spider-man").start();
+      gsap.set(imageElement, { opacity: 0, scale: 0, rotate: 180 });
+      await gsap.to(imageElement, {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        rotate: 0,
+        ease: "power1.inOut",
+      });
+    };
+
+    startTextAnimation();
+    startImageAnimation();
   }, []);
 
   return (
     <div className="header">
-      <h1 ref={typewriterRef}></h1>
-      <img ref={imageRef} src={Spiderman} alt="Spiderman" className="fade-in" />
+      <div className="text-container">
+        <h1 ref={textRef}></h1>
+      </div>
+      <div className="image-container">
+        <img
+          ref={imageRef}
+          src={Spiderman}
+          alt="Spiderman"
+          className="fade-in"
+        />
+      </div>
     </div>
   );
 };

@@ -1,15 +1,20 @@
-.header h1 {
-  font-family: "THE AMAZING SPIDER-MAN", sans-serif;
-  color: yellow;
-  font-size: 100px;
-  margin-left: 140px;
-  margin-right: 140px;
-  margin-bottom: 450px;
-}
-
 .header {
   display: flex;
   align-items: center;
+}
+
+.header h1 {
+  font-family: "THE AMAZING SPIDER-MAN", sans-serif;
+  color: yellow;
+  font-size: 60px;
+  position: relative;
+  top: 150px;
+}
+
+.text-container {
+  margin-left: 140px;
+  margin-right: 200px;
+  margin-bottom: 380px;
 }
 
 .image-container {
@@ -18,12 +23,12 @@
 }
 
 .header img {
-  width: 45%;
+  width: 30%;
 }
 
 .web {
   position: absolute;
-  left: 60%;
-  bottom: 5px;
-  width: 30%;
+  left: 52%;
+  top: 250px;
+  width: 20%;
 }
