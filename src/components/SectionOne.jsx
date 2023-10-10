@@ -11,18 +11,6 @@ const SectionOne = () => {
   const webRef = useRef(null);
 
   useEffect(() => {
-    const startTextAnimation = async () => {
-      const textElement = textRef.current;
-
-      const typewriter = new Typewriter(textElement, {
-        loop: false,
-        delay: 80,
-        cursor: "",
-      });
-
-      await typewriter.typeString("Spider-man").start();
-    };
-
     const startImageAnimation = async () => {
       const imageElement = imageRef.current;
 
@@ -39,18 +27,34 @@ const SectionOne = () => {
     const startWebAnimation = async () => {
       const webElement = webRef.current;
 
-      gsap.set(webElement, { opacity: 0, scale: 0 });
-      await gsap.to(webElement, {
-        opacity: 1,
-        scale: 1,
-        duration: 1,
-        ease: "power3.out",
-      });
+      gsap.set(webElement, { opacity: 0, scale: 0, rotate: 0 });
+
+      setTimeout(async () => {
+        await gsap.to(webElement, {
+          opacity: 1,
+          scale: 1.5,
+          duration: 1,
+          rotate: 90,
+          ease: "power3.out",
+        });
+      }, 1000);
     };
 
-    startTextAnimation();
+    const startTextAnimation = async () => {
+      const textElement = textRef.current;
+
+      const typewriter = new Typewriter(textElement, {
+        loop: false,
+        delay: 90,
+        cursor: "",
+      });
+
+      await typewriter.typeString("Spider-man").start();
+    };
+
     startImageAnimation();
     startWebAnimation();
+    startTextAnimation();
   }, []);
 
   return (

@@ -6,9 +6,9 @@
 .header h1 {
   font-family: "THE AMAZING SPIDER-MAN", sans-serif;
   color: yellow;
-  font-size: 60px;
+  font-size: 70px;
   position: relative;
-  top: 150px;
+  top: 200px;
   /* text-shadow: ; */
 }
 
@@ -28,12 +28,14 @@
   width: 30%;
   position: relative;
   left: 50%;
-  top: 10px;
+  top: 30px;
 }
 
 .web-container {
   position: absolute;
-  left: 27%; 
-  top: 250px;
+  left: 15%; 
+  top: 260px;
   width: 70%;
 }
+
+
