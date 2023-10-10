@@ -1,26 +1,43 @@
-import React, { useState } from "react";
-import { Howl } from "howler";
+import React, { useRef, useState } from 'react';
+import { Howl } from 'howler';
 
 const BackgroundMusic = () => {
-  const [isMuted, setIsMuted] = useState(false);
-  const musicUrl = "/music/Spider-Man.mp3";
+  const [isPlaying, setIsPlaying] = useState(false);
+  const sound = useRef(null);
 
-  const sound = new Howl({
-    src: [musicUrl],
-    loop: true, 
-    volume: 0.5, 
-    mute: isMuted, 
-  });
+  const setupSound = () => {
+    const audio = new Howl({
+      src: ['/music/Spider-Man.mp3'], // Adjust the path to your music file
+      onload: () => {
+        setIsPlaying(true);
+      },
+      onend: () => {
+        setIsPlaying(false);
+      },
+    });
 
-  const toggleMute = () => {
-    sound.mute(!isMuted);
-    setIsMuted(!isMuted);
+    return audio;
+  };
+
+  const togglePlayback = () => {
+    if (!sound.current) {
+      sound.current = setupSound();
+    }
+
+    if (sound.current) {
+      if (isPlaying) {
+        sound.current.pause();
+      } else {
+        sound.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
   };
 
   return (
-    <div className="music-controls">
-      <button onClick={toggleMute}>
-        {isMuted ? "Unmute" : "Mute"}
+    <div className="center-container">
+      <button onClick={togglePlayback} className="play-button">
+        {isPlaying ? 'Pause' : 'Play'}
       </button>
     </div>
   );
