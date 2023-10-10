@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import anime from "animejs";
 import Comic from "../assets/comic.jpg";
+import { Element } from "react-scroll"; 
 import "../styles/section.css";
 
 const SectionTwo = () => {
@@ -26,9 +27,11 @@ const SectionTwo = () => {
   }, []);
 
   return (
-    <div className="comic" ref={comicRef}>
-      <img src={Comic} alt="comic spiderman" />
-    </div>
+    <Element name="sectionTwo">
+      <div className="comic" ref={comicRef}>
+        <img src={Comic} alt="comic spiderman" />
+      </div>
+    </Element>
   );
 };
 

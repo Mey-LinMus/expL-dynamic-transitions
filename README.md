@@ -20,6 +20,7 @@ Use the package manager [npm](https://mojs.github.io/tutorials/getting-started.h
 ```bash
 npm i @mojs/core
 ```
+
 **animejs**
 Use the package manager [npm](https://www.npmjs.com/package/animejs) to install animejs.
 
