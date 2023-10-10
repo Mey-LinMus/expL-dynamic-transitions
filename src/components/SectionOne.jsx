@@ -3,7 +3,6 @@ import { gsap } from "gsap";
 import Typewriter from "typewriter-effect/dist/core";
 import Spiderman from "../assets/spiderman.png";
 import Web from "../assets/web.png";
-import { Element } from "react-scroll"; // Import the Element component from react-scroll
 import "../styles/section.css";
 
 const SectionOne = () => {
@@ -59,7 +58,7 @@ const SectionOne = () => {
   }, []);
 
   return (
-    <Element name="sectionOne">
+    <div name="sectionOne">
       <div className="header">
         <div className="text-container">
           <h1 ref={textRef}></h1>
@@ -76,7 +75,7 @@ const SectionOne = () => {
           <img ref={webRef} src={Web} alt="Spider web" className="web" />
         </div>
       </div>
-    </Element>
+    </div>
   );
 };
 
