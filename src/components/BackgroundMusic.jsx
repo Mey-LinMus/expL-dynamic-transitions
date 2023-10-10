@@ -1,43 +1,46 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Howl } from 'howler';
+import "../styles/section.css";
 
 const BackgroundMusic = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
   const sound = useRef(null);
+
+  const toggleMute = () => {
+    if (sound.current) {
+      sound.current.mute(!isMuted);
+      setIsMuted(!isMuted);
+    }
+  };
 
   const setupSound = () => {
     const audio = new Howl({
       src: ['/music/Spider-Man.mp3'], // Adjust the path to your music file
-      onload: () => {
-        setIsPlaying(true);
-      },
+      autoplay: true, // Automatically start playing
+      mute: isMuted, // Initialize with mute status
       onend: () => {
-        setIsPlaying(false);
+        // Handle end of audio if needed
       },
     });
 
     return audio;
   };
 
-  const togglePlayback = () => {
-    if (!sound.current) {
-      sound.current = setupSound();
-    }
+  useEffect(() => {
+    sound.current = setupSound(); // Initialize the audio when the component mounts
 
-    if (sound.current) {
-      if (isPlaying) {
-        sound.current.pause();
-      } else {
-        sound.current.play();
+    return () => {
+      // Clean up and unload the audio when the component unmounts
+      if (sound.current) {
+        sound.current.unload();
       }
-      setIsPlaying(!isPlaying);
-    }
-  };
+    };
+  }, [isMuted]);
 
   return (
-    <div className="center-container">
-      <button onClick={togglePlayback} className="play-button">
-        {isPlaying ? 'Pause' : 'Play'}
+    <div className="music-control">
+      <button onClick={toggleMute} className="mute-button">
+        {isMuted ? 'Unmute' : 'Mute'}
       </button>
     </div>
   );

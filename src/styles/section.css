@@ -8,6 +8,10 @@
   background-position: center; 
 }
 
+.music-control{
+  position: absolute;
+}
+
 .header h1 {
   font-family: "THE AMAZING SPIDER-MAN", sans-serif;
   color: yellow;
