@@ -1,7 +1,35 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import anime from "animejs";
+import Comic from "../assets/comic.jpg";
+import "../styles/section.css";
 
 const SectionTwo = () => {
-  return <div className="web-container"></div>;
+  const comicRef = useRef(null);
+
+  useEffect(() => {
+    const comicElement = comicRef.current;
+
+    // Define the animation properties
+    const animation = anime({
+      targets: comicElement,
+      translateX: [-3000, 0], 
+      // opacity: [0, 1], 
+      duration: 900, 
+      easing: "easeOutSine", 
+      delay: 500, 
+    });
+
+  
+    return () => {
+      animation.pause();
+    };
+  }, []);
+
+  return (
+    <div className="comic" ref={comicRef}>
+      <img src={Comic} alt="comic spiderman" />
+    </div>
+  );
 };
 
 export default SectionTwo;
