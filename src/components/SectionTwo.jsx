@@ -18,6 +18,8 @@ const SectionTwo = () => {
       targets: comicElement,
       translateX: [-3000, 0],
       // opacity: [0, 1],
+      rotate: [90, 360],
+      scale:[0,1],
       duration: 900,
       easing: "easeOutSine",
       autoplay: false, // Don't auto-play the animation
