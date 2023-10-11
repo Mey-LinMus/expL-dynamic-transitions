@@ -13,6 +13,7 @@ const BackgroundMusic = () => {
     }
   };
 
+  // https://www.youtube.com/watch?v=knL0aKGruUc
   const setupSound = () => {
     const audio = new Howl({
       src: ["/music/Spider-Man-Song-Original.mp3"], 

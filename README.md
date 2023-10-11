@@ -28,11 +28,19 @@ Use the package manager [npm](https://www.npmjs.com/package/animejs) to install 
 npm i animejs
 ```
 
+
 **react-intersection-observer**
 Use the package manager [npm](https://www.npmjs.com/package/react-intersection-observer) to install react-intersection-observer.
 
 ```bash
 npm i react-intersection-observer
+```
+
+**react-parallax**
+Use the package manager [npm](https://www.npmjs.com/package/react-parallax) to install react-parallax.
+
+```bash
+npm i react-parallax
 ```
 
 - https://www.npmjs.com/package/react-tsparticles
