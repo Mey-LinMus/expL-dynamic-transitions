@@ -1,5 +1,5 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { Howl } from 'howler';
+import React, { useRef, useEffect, useState } from "react";
+import { Howl } from "howler";
 import "../styles/section.css";
 
 const BackgroundMusic = () => {
@@ -15,11 +15,10 @@ const BackgroundMusic = () => {
 
   const setupSound = () => {
     const audio = new Howl({
-      src: ['/music/Spider-Man.mp3'], // Adjust the path to your music file
-      autoplay: true, // Automatically start playing
-      mute: isMuted, // Initialize with mute status
+      src: ["/music/Spider-Man-Song-Original.mp3"], 
+      autoplay: true, 
+      mute: isMuted, 
       onend: () => {
-        // Handle end of audio if needed
       },
     });
 
@@ -27,7 +26,7 @@ const BackgroundMusic = () => {
   };
 
   useEffect(() => {
-    sound.current = setupSound(); // Initialize the audio when the component mounts
+    sound.current = setupSound(); 
 
     return () => {
       // Clean up and unload the audio when the component unmounts
@@ -40,7 +39,7 @@ const BackgroundMusic = () => {
   return (
     <div className="music-control">
       <button onClick={toggleMute} className="mute-button">
-        {isMuted ? 'Unmute' : 'Mute'}
+        {isMuted ? "Unmute" : "Mute"}
       </button>
     </div>
   );

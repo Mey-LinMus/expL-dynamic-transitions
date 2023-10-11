@@ -35,6 +35,7 @@ Use the package manager [npm](https://www.npmjs.com/package/react-intersection-o
 npm i react-intersection-observer
 ```
 
-https://www.npmjs.com/package/react-tsparticles
-https://particles.js.org/samples/presets/index.html
+- https://www.npmjs.com/package/react-tsparticles
+- https://particles.js.org/samples/presets/index.html
+- https://gsap.com/community/forums/topic/30502-mouse-cursor-follow-animation/
 
