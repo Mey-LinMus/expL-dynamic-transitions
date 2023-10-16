@@ -3,6 +3,7 @@ import SectionOne from "../components/SectionOne";
 import SectionTwo from "../components/SectionTwo";
 import SectionTree from "../components/SectionTree";
 import BackgroundMusic from "../components/BackgroundMusic"; 
+import SectionFour from "../components/SectionFour"; 
 import "../styles/home.css";
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
       <SectionOne />
       <SectionTwo />
       <SectionTree />
+      <SectionFour/>
     </header>
   );
 };

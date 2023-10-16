@@ -3,6 +3,9 @@ import { Parallax } from "react-parallax";
 import SnippedOne from "../assets/Artboard1.png";
 import SnippedTwo from "../assets/Artboard2.png";
 import SnippedThree from "../assets/Artboard3.png";
+import SnippedFour from "../assets/Artboard4.png";
+import SnippedFive from "../assets/Artboard5.png";
+import SnippedSix from "../assets/Artboard6.png";
 import "../styles/section.css";
 
 const SectionTree = () => {
@@ -10,17 +13,32 @@ const SectionTree = () => {
     <div className="parallax-container">
       <div className="parallax-image">
         <Parallax bgImage={SnippedOne} strength={300}>
-          <div style={{ height: 600 }}></div>
+          <div style={{ height: 800 }}></div>
         </Parallax>
       </div>
       <div className="parallax-image">
-        <Parallax bgImage={SnippedTwo} strength={300}>
-          <div style={{ height: 600 }}></div>
+        <Parallax bgImage={SnippedTwo} strength={400}>
+          <div style={{ height: 800 }}></div>
         </Parallax>
       </div>
       <div className="parallax-image">
-        <Parallax bgImage={SnippedThree} strength={300}>
-          <div style={{ height: 600 }}></div>
+        <Parallax bgImage={SnippedThree} strength={500}>
+          <div style={{ height: 800 }}></div>
+        </Parallax>
+      </div>
+      <div className="parallax-image">
+        <Parallax bgImage={SnippedFour} strength={600}>
+          <div style={{ height: 800 }}></div>
+        </Parallax>
+      </div>
+      <div className="parallax-image">
+        <Parallax bgImage={SnippedFive} strength={700}>
+          <div style={{ height: 800 }}></div>
+        </Parallax>
+      </div>
+      <div className="parallax-image">
+        <Parallax bgImage={SnippedSix} strength={800}>
+          <div style={{ height: 800 }}></div>
         </Parallax>
       </div>
     </div>
