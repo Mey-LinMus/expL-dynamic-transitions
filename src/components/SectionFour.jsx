@@ -16,7 +16,7 @@ const images = [
 const variants = {
   visible: { opacity: 1, x: 0 },
   hidden: { opacity: 0, x: -100 },
-  hover: { scale: 1.1 }, // Scaling animation on hover
+  hover: { hover: 1 }, 
 };
 
 const SectionFour = () => {
@@ -49,11 +49,11 @@ const SectionFour = () => {
         updatedShowHoverImages[index] = false;
         return updatedShowHoverImages;
       });
-    }, 100); // Add a delay to ensure a smooth transition
+    }, 100); 
   };
 
   useEffect(() => {
-    // Prevent hover images from disappearing if the mouse is still hovering when the component unmounts
+
     return () => {
       setHoveredImages(Array(images.length).fill(false));
       setShowHoverImages(Array(images.length).fill(false));
@@ -80,7 +80,7 @@ const SectionFour = () => {
               src={hoveredImages[index] ? image.hoverSrc : image.mainSrc}
               alt={image.alt}
               className={`horizontal-img ${showHoverImages[index] ? "show-hover" : ""}`}
-              whileHover="hover" // Apply scaling animation on hover
+              whileHover="hover" 
               variants={variants}
             />
           </motion.div>
