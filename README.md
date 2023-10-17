@@ -43,6 +43,13 @@ Use the package manager [npm](https://www.npmjs.com/package/react-parallax) to i
 npm i react-parallax
 ```
 
+**react-spring**
+Use the package manager [npm](https://www.react-spring.dev/) to install react-spring.
+
+```bash
+npm i react-spring
+```
+
 - https://www.npmjs.com/package/react-tsparticles
 - https://particles.js.org/samples/presets/index.html
 - https://gsap.com/community/forums/topic/30502-mouse-cursor-follow-animation/

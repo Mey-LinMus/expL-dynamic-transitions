@@ -2,14 +2,26 @@
   display: flex;
   align-items: center;
   height: 100vh;
-  background-image: url("../assets/darkcity.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .music-control {
   position: absolute;
+  z-index: 10;
+  top: 25px;
+  left: 15px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mute-button {
+  background: none;
+  border: none;
+  color: #000000;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 .header h1 {
@@ -42,6 +54,7 @@
 
 .web-container {
   position: absolute;
+  z-index: 10;
   left: 15%;
   top: 260px;
   width: 70%;

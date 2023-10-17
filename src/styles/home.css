@@ -5,3 +5,16 @@ body {
   overflow-x: hidden;
 }
 
+
+::-webkit-scrollbar {
+  width: 5px; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dc0303; 
+  border-radius: 5px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff; 
+}

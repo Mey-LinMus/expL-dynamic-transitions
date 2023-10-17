@@ -1,29 +1,25 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import Typewriter from "typewriter-effect/dist/core";
 import Spiderman from "../assets/spiderman.png";
 import Web from "../assets/web.png";
+import { Parallax } from "react-parallax";
+import { useSpring, animated } from "react-spring";
 import "../styles/section.css";
 
 const SectionOne = () => {
   const textRef = useRef(null);
-  const imageRef = useRef(null);
   const webRef = useRef(null);
+  const parallaxRef = useRef(null);
+
+  const [mouseX, setMouseX] = useState(0);
+
+  const spidermanSpring = useSpring({
+    transform: `translateX(${mouseX / 50}px)`,
+    config: { tension: 170, friction: 12 },
+  });
 
   useEffect(() => {
-    const startImageAnimation = async () => {
-      const imageElement = imageRef.current;
-
-      gsap.set(imageElement, { opacity: 0, scale: 0, rotate: 180 });
-      await gsap.to(imageElement, {
-        opacity: 1,
-        scale: 1,
-        duration: 1,
-        rotate: 0,
-        ease: "power1.inOut",
-      });
-    };
-
     const startWebAnimation = async () => {
       const webElement = webRef.current;
 
@@ -52,29 +48,36 @@ const SectionOne = () => {
       await typewriter.typeString("Spider-man").start();
     };
 
-    startImageAnimation();
     startWebAnimation();
     startTextAnimation();
   }, []);
 
+  const handleMouseMove = (e) => {
+    setMouseX(e.clientX);
+  };
+
   return (
-    <div name="sectionOne">
-      <div className="header">
-        <div className="text-container">
-          <h1 ref={textRef}></h1>
+    <div name="sectionOne" onMouseMove={handleMouseMove}>
+      <Parallax
+        bgImage={require("../assets/darkcity.png")}
+        strength={300}
+        ref={parallaxRef}
+      >
+        <div className="header">
+          <div className="text-container">
+            <h1 ref={textRef}></h1>
+          </div>
+          <div className="web-container">
+            <img ref={webRef} src={Web} alt="Spider web" className="web" />
+          </div>
+          <animated.div
+            className="image-container"
+            style={{ ...spidermanSpring }}
+          >
+            <img src={Spiderman} alt="Spiderman" className="fade-in" />
+          </animated.div>
         </div>
-        <div className="image-container">
-          <img
-            ref={imageRef}
-            src={Spiderman}
-            alt="Spiderman"
-            className="fade-in"
-          />
-        </div>
-        <div className="web-container">
-          <img ref={webRef} src={Web} alt="Spider web" className="web" />
-        </div>
-      </div>
+      </Parallax>
     </div>
   );
 };
