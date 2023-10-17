@@ -1,21 +1,65 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import TobeyMaguireImage from "../assets/actors/TobeyMaguire.jpg";
 import AndrewGarfieldImage from "../assets/actors/AndrewGarfield.jpg";
 import TomHollandImage from "../assets/actors/TomHolland.jpg";
+import NewImage1 from "../assets/actors/TobeySpiderman.jpg";
+import NewImage2 from "../assets/actors/AndrewSpiderman.jpg";
+import NewImage3 from "../assets/actors/TomSpiderman.jpg";
 
 const images = [
-  { src: TobeyMaguireImage, text: "Tobey Maguire" },
-  { src: AndrewGarfieldImage, text: "Andrew Garfield" },
-  { src: TomHollandImage, text: "Tom Holland" },
+  { mainSrc: TobeyMaguireImage, hoverSrc: NewImage1, alt: "Tobey Maguire" },
+  { mainSrc: AndrewGarfieldImage, hoverSrc: NewImage2, alt: "Andrew Garfield" },
+  { mainSrc: TomHollandImage, hoverSrc: NewImage3, alt: "Tom Holland" },
 ];
 
 const variants = {
   visible: { opacity: 1, x: 0 },
   hidden: { opacity: 0, x: -100 },
+  hover: { scale: 1.1 }, // Scaling animation on hover
 };
 
 const SectionFour = () => {
+  const [hoveredImages, setHoveredImages] = useState(Array(images.length).fill(false));
+  const [showHoverImages, setShowHoverImages] = useState(Array(images.length).fill(false));
+
+  const handleMouseEnter = (index) => {
+    setHoveredImages((prev) => {
+      const updatedHoveredImages = [...prev];
+      updatedHoveredImages[index] = true;
+      return updatedHoveredImages;
+    });
+    setShowHoverImages((prev) => {
+      const updatedShowHoverImages = [...prev];
+      updatedShowHoverImages[index] = true;
+      return updatedShowHoverImages;
+    });
+  };
+
+  const handleMouseLeave = (index) => {
+    setHoveredImages((prev) => {
+      const updatedHoveredImages = [...prev];
+      updatedHoveredImages[index] = false;
+      return updatedHoveredImages;
+    });
+
+    setTimeout(() => {
+      setShowHoverImages((prev) => {
+        const updatedShowHoverImages = [...prev];
+        updatedShowHoverImages[index] = false;
+        return updatedShowHoverImages;
+      });
+    }, 100); // Add a delay to ensure a smooth transition
+  };
+
+  useEffect(() => {
+    // Prevent hover images from disappearing if the mouse is still hovering when the component unmounts
+    return () => {
+      setHoveredImages(Array(images.length).fill(false));
+      setShowHoverImages(Array(images.length).fill(false));
+    };
+  }, []);
+
   return (
     <div className="horizontal">
       <AnimatePresence>
@@ -28,9 +72,17 @@ const SectionFour = () => {
             variants={variants}
             transition={{ duration: 1 }}
             style={{ marginRight: "20px" }}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={() => handleMouseLeave(index)}
           >
-            <h1>{image.text}</h1>
-            <img src={image.src} alt={image.text} className="horizontal-img" />
+            <h1>{image.alt}</h1>
+            <motion.img
+              src={hoveredImages[index] ? image.hoverSrc : image.mainSrc}
+              alt={image.alt}
+              className={`horizontal-img ${showHoverImages[index] ? "show-hover" : ""}`}
+              whileHover="hover" // Apply scaling animation on hover
+              variants={variants}
+            />
           </motion.div>
         ))}
       </AnimatePresence>
