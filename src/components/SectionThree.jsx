@@ -27,24 +27,6 @@ const SectionTree = () => {
   const [showHoverImages, setShowHoverImages] = useState(
     Array(images.length).fill(false)
   );
-  const [isFixed, setIsFixed] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollThreshold = 100; // Adjust as needed
-      if (window.scrollY > scrollThreshold) {
-        setIsFixed(true);
-      } else {
-        setIsFixed(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   const handleMouseEnter = (index) => {
     setHoveredImages((prev) => {
@@ -75,35 +57,41 @@ const SectionTree = () => {
     }, 100);
   };
 
+  useEffect(() => {
+    return () => {
+      setHoveredImages(Array(images.length).fill(false));
+      setShowHoverImages(Array(images.length).fill(false));
+    };
+  }, []);
+
   return (
-    <div
-      className={`horizontal section-three ${isFixed ? "fixed-section" : ""}`}
-    >
+    <div className="section-three">
       <AnimatePresence>
-        {images.map((image, index) => (
-          <motion.div
-            key={index}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            variants={variants}
-            transition={{ duration: 1 }}
-            style={{ marginRight: "80px" }}
-            onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={() => handleMouseLeave(index)}
-          >
-            <h1>{image.alt}</h1>
-            <motion.img
-              src={hoveredImages[index] ? image.hoverSrc : image.mainSrc}
-              alt={image.alt}
-              className={`horizontal-img ${
-                showHoverImages[index] ? "show-hover" : ""
-              }`}
-              whileHover="hover"
+        <div className="images-container">
+          {images.map((image, index) => (
+            <motion.div
+              key={index}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
               variants={variants}
-            />
-          </motion.div>
-        ))}
+              transition={{ duration: 1 }}
+              className="section-three-item"
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={() => handleMouseLeave(index)}
+            >
+              <h1 className="sectionThreefont">{image.alt}</h1>
+              <motion.img
+                src={hoveredImages[index] ? image.hoverSrc : image.mainSrc}
+                alt={image.alt}
+                className={`section-three-img ${
+                  showHoverImages[index] ? "show-hover" : ""
+                }`}
+                whileHover="hover"
+              />
+            </motion.div>
+          ))}
+        </div>
       </AnimatePresence>
     </div>
   );

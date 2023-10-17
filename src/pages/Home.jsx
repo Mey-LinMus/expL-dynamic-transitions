@@ -1,7 +1,7 @@
 import React from "react";
 import SectionOne from "../components/SectionOne";
 import SectionTwo from "../components/SectionTwo";
-import SectionTree from "../components/SectionTree";
+import SectionThree from "../components/SectionThree";
 import BackgroundMusic from "../components/BackgroundMusic"; 
 import SectionFour from "../components/SectionFour"; 
 import "../styles/home.css";
@@ -12,7 +12,7 @@ const Home = () => {
       {/* <BackgroundMusic />  */}
       <SectionOne />
       <SectionTwo />
-      <SectionTree />
+      <SectionThree />
       <SectionFour/>
     </header>
   );
