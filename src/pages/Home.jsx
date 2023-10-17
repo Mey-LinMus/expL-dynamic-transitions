@@ -9,7 +9,7 @@ import "../styles/home.css";
 const Home = () => {
   return (
     <header>
-      <BackgroundMusic /> 
+      {/* <BackgroundMusic />  */}
       <SectionOne />
       <SectionTwo />
       <SectionTree />
