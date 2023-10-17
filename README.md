@@ -28,7 +28,6 @@ Use the package manager [npm](https://www.npmjs.com/package/animejs) to install 
 npm i animejs
 ```
 
-
 **react-intersection-observer**
 Use the package manager [npm](https://www.npmjs.com/package/react-intersection-observer) to install react-intersection-observer.
 
@@ -48,6 +47,13 @@ Use the package manager [npm](https://www.react-spring.dev/) to install react-sp
 
 ```bash
 npm i react-spring
+```
+
+**react-spring**
+Use the package manager [npm](https://www.npmjs.com/package/framer-motion) to install framer-motion.
+
+```bash
+npm i framer-motion
 ```
 
 - https://www.npmjs.com/package/react-tsparticles

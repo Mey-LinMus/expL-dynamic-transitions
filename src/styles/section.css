@@ -43,7 +43,7 @@
 .info {
   display: flex;
   align-items: center;
-  height: 80vh;
+  height: 50vh;
   padding: 60px;
   line-height: 1.5;
   font-size: larger;
@@ -90,4 +90,15 @@
   flex: 1;
   text-align: center;
   max-width: 17%;
+}
+
+.horizontal {
+  white-space: nowrap;
+  display: flex;
+  overflow-x: scroll;
+}
+
+.horizontal-img{
+  width: 50vw;
+  height: auto;
 }
