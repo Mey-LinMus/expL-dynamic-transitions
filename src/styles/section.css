@@ -95,16 +95,25 @@
 .horizontal {
   white-space: nowrap;
   display: flex;
-  overflow-x: scroll;
   align-items: center;
   height: 100vh;
+  margin-bottom: 150px;
+  margin-left: 10%;
 }
 
 .horizontal-img {
-  width: 50vw;
+  width: 65vw;
   height: auto;
 }
 
-.horizontal{
+.horizontal {
   overflow-x: hidden;
 }
+
+/* .fixed-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1; 
+} */
