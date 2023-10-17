@@ -1,40 +1,91 @@
-import React from "react";
-import { Parallax } from "react-parallax";
-import SnippedOne from "../assets/Artboard1.png";
-import SnippedTwo from "../assets/Artboard2.png";
-import SnippedThree from "../assets/Artboard3.png";
-import SnippedFour from "../assets/Artboard4.png";
-import SnippedSix from "../assets/Artboard6.png";
-import "../styles/section.css";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import TobeyMaguireImage from "../assets/actors/TobeyMaguire.jpg";
+import AndrewGarfieldImage from "../assets/actors/AndrewGarfield.jpg";
+import TomHollandImage from "../assets/actors/TomHolland.jpg";
+import NewImage1 from "../assets/actors/TobeySpiderman.jpg";
+import NewImage2 from "../assets/actors/AndrewSpiderman.jpg";
+import NewImage3 from "../assets/actors/TomSpiderman.jpg";
+
+const images = [
+  { mainSrc: TobeyMaguireImage, hoverSrc: NewImage1, alt: "Tobey Maguire" },
+  { mainSrc: AndrewGarfieldImage, hoverSrc: NewImage2, alt: "Andrew Garfield" },
+  { mainSrc: TomHollandImage, hoverSrc: NewImage3, alt: "Tom Holland" },
+];
+
+const variants = {
+  visible: { opacity: 1, x: 0 },
+  hidden: { opacity: 0, x: -100 },
+  hover: { hover: 1 }, 
+};
 
 const SectionTree = () => {
+  const [hoveredImages, setHoveredImages] = useState(Array(images.length).fill(false));
+  const [showHoverImages, setShowHoverImages] = useState(Array(images.length).fill(false));
+
+  const handleMouseEnter = (index) => {
+    setHoveredImages((prev) => {
+      const updatedHoveredImages = [...prev];
+      updatedHoveredImages[index] = true;
+      return updatedHoveredImages;
+    });
+    setShowHoverImages((prev) => {
+      const updatedShowHoverImages = [...prev];
+      updatedShowHoverImages[index] = true;
+      return updatedShowHoverImages;
+    });
+  };
+
+  const handleMouseLeave = (index) => {
+    setHoveredImages((prev) => {
+      const updatedHoveredImages = [...prev];
+      updatedHoveredImages[index] = false;
+      return updatedHoveredImages;
+    });
+
+    setTimeout(() => {
+      setShowHoverImages((prev) => {
+        const updatedShowHoverImages = [...prev];
+        updatedShowHoverImages[index] = false;
+        return updatedShowHoverImages;
+      });
+    }, 100); 
+  };
+
+  useEffect(() => {
+
+    return () => {
+      setHoveredImages(Array(images.length).fill(false));
+      setShowHoverImages(Array(images.length).fill(false));
+    };
+  }, []);
+
   return (
-    <div className="parallax-container">
-      <div className="parallax-image">
-        <Parallax bgImage={SnippedOne} strength={300}>
-          <div style={{ height: 800 }}></div>
-        </Parallax>
-      </div>
-      <div className="parallax-image">
-        <Parallax bgImage={SnippedTwo} strength={400}>
-          <div style={{ height: 800 }}></div>
-        </Parallax>
-      </div>
-      <div className="parallax-image">
-        <Parallax bgImage={SnippedThree} strength={500}>
-          <div style={{ height: 800 }}></div>
-        </Parallax>
-      </div>
-      <div className="parallax-image">
-        <Parallax bgImage={SnippedFour} strength={600}>
-          <div style={{ height: 800 }}></div>
-        </Parallax>
-      </div>
-      <div className="parallax-image">
-        <Parallax bgImage={SnippedSix} strength={800}>
-          <div style={{ height: 800 }}></div>
-        </Parallax>
-      </div>
+    <div className="horizontal">
+      <AnimatePresence>
+        {images.map((image, index) => (
+          <motion.div
+            key={index}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={variants}
+            transition={{ duration: 1 }}
+            style={{ marginRight: "20px" }}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={() => handleMouseLeave(index)}
+          >
+            <h1>{image.alt}</h1>
+            <motion.img
+              src={hoveredImages[index] ? image.hoverSrc : image.mainSrc}
+              alt={image.alt}
+              className={`horizontal-img ${showHoverImages[index] ? "show-hover" : ""}`}
+              whileHover="hover" 
+              variants={variants}
+            />
+          </motion.div>
+        ))}
+      </AnimatePresence>
     </div>
   );
 };

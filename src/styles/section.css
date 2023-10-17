@@ -96,9 +96,15 @@
   white-space: nowrap;
   display: flex;
   overflow-x: scroll;
+  align-items: center;
+  height: 100vh;
 }
 
-.horizontal-img{
+.horizontal-img {
   width: 50vw;
   height: auto;
+}
+
+.horizontal{
+  overflow-x: hidden;
 }
