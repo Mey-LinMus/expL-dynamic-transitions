@@ -15,9 +15,8 @@ const images = [
 ];
 
 const variants = {
-  visible: { opacity: 1, x: 0 },
-  hidden: { opacity: 0, x: -100 },
-  hover: { hover: 1 },
+  visible: { opacity: 1, x: 0, duration: 2 },
+  hidden: { opacity: 0, x: -200, duration: 2 },
 };
 
 const SectionTree = () => {
@@ -75,7 +74,6 @@ const SectionTree = () => {
               animate="visible"
               exit="hidden"
               variants={variants}
-              transition={{ duration: 1 }}
               className="section-three-item"
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={() => handleMouseLeave(index)}
@@ -87,7 +85,12 @@ const SectionTree = () => {
                 className={`section-three-img ${
                   showHoverImages[index] ? "show-hover" : ""
                 }`}
-                whileHover="hover"
+                whileHover={{
+                  opacity: 1,
+                  duration: 5,
+                  ease: "easeOut",
+                  rotate: 360,
+                }}
               />
             </motion.div>
           ))}
