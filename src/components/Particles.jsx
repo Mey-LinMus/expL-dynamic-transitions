@@ -1,17 +1,16 @@
-import { useCallback } from "react";
+import React from "react";
 import Particles from "react-tsparticles";
-import { loadSlim } from "tsparticles-slim"; 
+import { loadSlim } from "tsparticles-slim";
 
 const ParticleBackground = () => {
-  const particlesInit = useCallback(async (engine) => {
+  const particlesInit = async (engine) => {
     console.log(engine);
-   
     await loadSlim(engine);
-  }, []);
+  };
 
-  const particlesLoaded = useCallback(async (container) => {
-    await console.log(container);
-  }, []);
+  const particlesLoaded = async (container) => {
+    console.log(container);
+  };
 
   return (
     <Particles
@@ -47,11 +46,10 @@ const ParticleBackground = () => {
             value: "#ffffff",
           },
           links: {
-            color: "#ffffff",
-            distance: 450,
             enable: true,
+            distance: 100, // Adjust this distance as needed
             opacity: 0.5,
-            width: 0.5,
+            width: 1,
           },
           move: {
             direction: "none",
@@ -60,13 +58,13 @@ const ParticleBackground = () => {
               default: "bounce",
             },
             random: false,
-            speed: 6,
+            speed: 1.5,
             straight: false,
           },
           number: {
             density: {
               enable: true,
-              area: 2000,
+              area: 200,
             },
             value: 80,
           },
@@ -74,7 +72,7 @@ const ParticleBackground = () => {
             value: 0.5,
           },
           shape: {
-            type: "circle",
+            type: "none",
           },
           size: {
             value: { min: 1, max: 5 },
@@ -82,7 +80,17 @@ const ParticleBackground = () => {
         },
         detectRetina: true,
       }}
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        zIndex: 999,
+      }}
     />
   );
 };
+
 export default ParticleBackground;
+
