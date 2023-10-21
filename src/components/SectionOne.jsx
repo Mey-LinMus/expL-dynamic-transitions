@@ -13,6 +13,7 @@ const SectionOne = () => {
   const textRef = useRef(null);
   const webRef = useRef(null);
   const parallaxRef = useRef(null);
+  const spidermanRef = useRef(null); // Add a ref for the Spiderman image
 
   const [mouseX, setMouseX] = useState(0);
 
@@ -50,8 +51,23 @@ const SectionOne = () => {
       await typewriter.typeString("Spider-man").start();
     };
 
+    const startSpidermanAnimation = async () => {
+      const spidermanElement = spidermanRef.current;
+
+      gsap.set(spidermanElement, { scale: 0, rotate: 90 });
+
+      await gsap.to(spidermanElement, {
+        scale: 1,
+        rotate: 360,
+        duration: 1.5,
+        delay: 1.5,
+        ease: "power3.out",
+      });
+    };
+
     startWebAnimation();
     startTextAnimation();
+    startSpidermanAnimation();
   }, []);
 
   const handleMouseMove = (e) => {
@@ -60,7 +76,11 @@ const SectionOne = () => {
 
   return (
     <div name="sectionOne" onMouseMove={handleMouseMove}>
-      <Parallax bgImage={sharedBackgroundImage} strength={300} ref={parallaxRef}>
+      <Parallax
+        bgImage={sharedBackgroundImage}
+        strength={300}
+        ref={parallaxRef}
+      >
         <div className="header">
           <div className="text-container">
             <h1 ref={textRef}></h1>
@@ -72,7 +92,12 @@ const SectionOne = () => {
             className="image-container"
             style={{ ...spidermanSpring }}
           >
-            <img src={Spiderman} alt="Spiderman" className="fade-in" />
+            <img
+              ref={spidermanRef}
+              src={Spiderman}
+              alt="Spiderman"
+              className="fade-in"
+            />
           </animated.div>
         </div>
       </Parallax>
