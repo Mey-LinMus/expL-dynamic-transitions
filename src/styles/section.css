@@ -30,7 +30,6 @@
   font-size: 70px;
   position: relative;
   top: 200px;
-  /* text-shadow: ; */
 }
 
 .text-container {
@@ -83,7 +82,6 @@
   height: 100vh;
   overflow: hidden;
   background-color: #000000;
-  /* margin-bottom: 20%; */
 }
 
 .parallax-image {
@@ -95,11 +93,9 @@
 .section-three {
   white-space: nowrap;
   display: flex;
-  align-items: center;
-  margin-bottom: 250px;
-  margin-top: 30px;
   margin-left: 3.5%;
   overflow-x: hidden;
+  height: 100vh;
 }
 
 .images-container {
@@ -119,7 +115,8 @@
 .sectionThreefont {
   font-size: 20px;
   text-align: center;
-  background-color: rgba(255, 0, 0, 0.361);
+  background-color: rgba(255, 0, 0, 0.557);
   padding: 5px;
   border-radius: 30px;
+  margin-top: 200px;
 }

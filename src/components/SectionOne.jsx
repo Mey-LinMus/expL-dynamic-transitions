@@ -7,6 +7,8 @@ import { Parallax } from "react-parallax";
 import { useSpring, animated } from "react-spring";
 import "../styles/section.css";
 
+const sharedBackgroundImage = require("../assets/city2.jpg");
+
 const SectionOne = () => {
   const textRef = useRef(null);
   const webRef = useRef(null);
@@ -58,11 +60,7 @@ const SectionOne = () => {
 
   return (
     <div name="sectionOne" onMouseMove={handleMouseMove}>
-      <Parallax
-        bgImage={require("../assets/darkcity.png")}
-        strength={300}
-        ref={parallaxRef}
-      >
+      <Parallax bgImage={sharedBackgroundImage} strength={300} ref={parallaxRef}>
         <div className="header">
           <div className="text-container">
             <h1 ref={textRef}></h1>

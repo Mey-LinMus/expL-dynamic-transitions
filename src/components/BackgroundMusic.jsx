@@ -4,6 +4,7 @@ import "../styles/section.css";
 
 const BackgroundMusic = () => {
   const [isMuted, setIsMuted] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   const sound = useRef(null);
 
   const toggleMute = () => {
@@ -13,13 +14,24 @@ const BackgroundMusic = () => {
     }
   };
 
-  // https://www.youtube.com/watch?v=knL0aKGruUc
+  const togglePlay = () => {
+    if (sound.current) {
+      if (isPlaying) {
+        sound.current.pause();
+      } else {
+        sound.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
   const setupSound = () => {
     const audio = new Howl({
-      src: ["/music/Spider-Man-Song-Original.mp3"], 
-      autoplay: true, 
-      mute: isMuted, 
+      src: ["/music/Spider-Man-Song-Original.mp3"],
+      autoplay: false, // Start paused
+      mute: isMuted,
       onend: () => {
+        // ...
       },
     });
 
@@ -27,10 +39,9 @@ const BackgroundMusic = () => {
   };
 
   useEffect(() => {
-    sound.current = setupSound(); 
+    sound.current = setupSound();
 
     return () => {
-      // Clean up and unload the audio when the component unmounts
       if (sound.current) {
         sound.current.unload();
       }
@@ -41,6 +52,9 @@ const BackgroundMusic = () => {
     <div className="music-control">
       <button onClick={toggleMute} className="mute-button">
         {isMuted ? "Unmute" : "Mute"}
+      </button>
+      <button onClick={togglePlay} className="play-pause-button">
+        {isPlaying ? "Pause" : "Play"}
       </button>
     </div>
   );
