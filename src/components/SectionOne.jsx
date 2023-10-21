@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+// SectionOne.js
+import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import Typewriter from "typewriter-effect/dist/core";
 import Spiderman from "../assets/spiderman.png";
@@ -6,14 +7,14 @@ import Web from "../assets/web.png";
 import { Parallax } from "react-parallax";
 import { useSpring, animated } from "react-spring";
 import "../styles/section.css";
-
+import ParticleBackground from "./Particles";  
 const sharedBackgroundImage = require("../assets/city2.jpg");
 
 const SectionOne = () => {
   const textRef = useRef(null);
   const webRef = useRef(null);
   const parallaxRef = useRef(null);
-  const spidermanRef = useRef(null); // Add a ref for the Spiderman image
+  const spidermanRef = useRef(null);
 
   const [mouseX, setMouseX] = useState(0);
 
@@ -76,6 +77,7 @@ const SectionOne = () => {
 
   return (
     <div name="sectionOne" onMouseMove={handleMouseMove}>
+      <ParticleBackground /> {/* Include the ParticleBackground component */}
       <Parallax
         bgImage={sharedBackgroundImage}
         strength={300}
