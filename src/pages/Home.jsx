@@ -14,7 +14,7 @@ const Home = () => {
     <header>
       <CustomCursor />
       <ParticleBackground />
-      {/* <BackgroundMusic /> */}
+      <BackgroundMusic />
       <SectionOne />
       <SectionTwo />
       <SectionThree />

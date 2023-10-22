@@ -20,7 +20,7 @@ const BackgroundMusic = () => {
       preload: "auto", 
       mute: isMuted,
       onend: () => {
-        // ...
+    
       },
     });
 
