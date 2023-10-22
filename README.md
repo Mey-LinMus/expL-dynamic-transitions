@@ -49,14 +49,33 @@ Use the package manager [npm](https://www.react-spring.dev/) to install react-sp
 npm i react-spring
 ```
 
-**react-spring**
+**Framer motion**
 Use the package manager [npm](https://www.npmjs.com/package/framer-motion) to install framer-motion.
 
 ```bash
 npm i framer-motion
 ```
 
-- https://www.npmjs.com/package/react-tsparticles
-- https://particles.js.org/samples/presets/index.html
-- https://gsap.com/community/forums/topic/30502-mouse-cursor-follow-animation/
+**Howler**
+Use the package manager [npm](https://www.npmjs.com/package/howler) to install howler.
+
+```bash
+npm i howler
+```
+
+**react-tsparticles**
+Use the package manager [npm](https://www.npmjs.com/package/react-tsparticles) to install react-tsparticles.
+
+```bash
+npm i react-tsparticles
+```
+
+**Vivus**
+Use the package manager [npm](https://www.npmjs.com/package/react-tsparticles) to install vivus.
+
+```bash
+npm i vivus
+```
+- SVG:https://github.com/rafaelmartins92/spiderman/blob/main/index.html
+
 
