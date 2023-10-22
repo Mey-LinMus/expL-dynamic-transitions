@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/Mey-LinMus/expL-dynamic-transitions/static/css/main.5dd0df76.css",
+    "main.js": "/Mey-LinMus/expL-dynamic-transitions/static/js/main.8790f250.js",
+    "static/js/787.907d20ab.chunk.js": "/Mey-LinMus/expL-dynamic-transitions/static/js/787.907d20ab.chunk.js",
+    "static/media/AndrewSpiderman.jpg": "/Mey-LinMus/expL-dynamic-transitions/static/media/AndrewSpiderman.8ef671f804a62de57d43.jpg",
+    "static/media/spiderman.png": "/Mey-LinMus/expL-dynamic-transitions/static/media/spiderman.e09985142dcfc9b14938.png",
+    "static/media/TomHolland.jpg": "/Mey-LinMus/expL-dynamic-transitions/static/media/TomHolland.57a3a4f163ea2b5d5b99.jpg",
+    "static/media/city2.jpg": "/Mey-LinMus/expL-dynamic-transitions/static/media/city2.78518098867a636f1162.jpg",
+    "static/media/TobeyMaguire.jpg": "/Mey-LinMus/expL-dynamic-transitions/static/media/TobeyMaguire.f8ce3994c098e9e54d58.jpg",
+    "static/media/TomSpiderman.jpg": "/Mey-LinMus/expL-dynamic-transitions/static/media/TomSpiderman.43c0ab13f67456fc445b.jpg",
+    "static/media/TobeySpiderman.jpg": "/Mey-LinMus/expL-dynamic-transitions/static/media/TobeySpiderman.0fd489487c51fbb5c8f9.jpg",
+    "static/media/AndrewGarfield.jpg": "/Mey-LinMus/expL-dynamic-transitions/static/media/AndrewGarfield.82f6f345918f5aab87cc.jpg",
+    "static/media/Artboard4.png": "/Mey-LinMus/expL-dynamic-transitions/static/media/Artboard4.6d0b8a5a682142bf9a2d.png",
+    "static/media/Artboard2.png": "/Mey-LinMus/expL-dynamic-transitions/static/media/Artboard2.8bc1519fecc31c7af202.png",
+    "static/media/Artboard1.png": "/Mey-LinMus/expL-dynamic-transitions/static/media/Artboard1.98b86cfc4d8d2f4d40b0.png",
+    "static/media/web.png": "/Mey-LinMus/expL-dynamic-transitions/static/media/web.418dec37b70d7b9346b7.png",
+    "static/media/Artboard3.png": "/Mey-LinMus/expL-dynamic-transitions/static/media/Artboard3.76bfdb5b8c51df1f3493.png",
+    "static/media/Artboard6.png": "/Mey-LinMus/expL-dynamic-transitions/static/media/Artboard6.be401b9f6977d142a6e0.png",
+    "index.html": "/Mey-LinMus/expL-dynamic-transitions/index.html",
+    "main.5dd0df76.css.map": "/Mey-LinMus/expL-dynamic-transitions/static/css/main.5dd0df76.css.map",
+    "main.8790f250.js.map": "/Mey-LinMus/expL-dynamic-transitions/static/js/main.8790f250.js.map",
+    "787.907d20ab.chunk.js.map": "/Mey-LinMus/expL-dynamic-transitions/static/js/787.907d20ab.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5dd0df76.css",
+    "static/js/main.8790f250.js"
+  ]
+}
