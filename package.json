@@ -23,6 +23,7 @@
     "react-tsparticles": "^2.12.2",
     "tsparticles-slim": "^2.12.0",
     "typewriter-effect": "^2.21.0",
+    "vivus": "^0.4.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
